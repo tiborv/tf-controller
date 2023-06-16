@@ -15,10 +15,11 @@ import (
 const DefaultPollingInterval = time.Second * 30
 
 type Server struct {
-	log             logr.Logger
-	clusterClient   client.Client
-	configMapRef    client.ObjectKey
-	pollingInterval time.Duration
+	log                  logr.Logger
+	clusterClient        client.Client
+	configMapRef         client.ObjectKey
+	pollingInterval      time.Duration
+	noCrossNamespaceRefs bool
 }
 
 func New(options ...Option) (*Server, error) {
